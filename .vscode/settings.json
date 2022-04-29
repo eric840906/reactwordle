@@ -1,0 +1,12 @@
+{
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "html.format.endWithNewline": true,
+  "javascript.format.placeOpenBraceOnNewLineForFunctions": true,
+  "editor.defaultFormatter": null,
+  "scssFormatter.singleQuote": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["javascript"]
+}
