@@ -33,7 +33,7 @@ const useWordle = (solution) => {
     setCurrentGuess('')
   }
   // const addNewGuess = () => {}
-  const handleKeyup = ({ key }) => {
+  const wordHandler = (key) => {
     if (key === 'Enter') {
       if (turn > 5) {
         console.log('boom')
@@ -59,8 +59,14 @@ const useWordle = (solution) => {
       }
     }
   }
+  const handleClick = (key) => {
+    wordHandler(key)
+  }
+  const handleKeyup = ({ key }) => {
+    wordHandler(key)
+  }
   // return { turn, currentGuess, guesses, isCorret, handleKeyup }
-  return { currentGuess, handleKeyup, history }
+  return { currentGuess, handleKeyup, history, handleClick }
 }
 
 export default useWordle

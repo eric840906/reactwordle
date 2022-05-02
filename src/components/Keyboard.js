@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import './Keyboard.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -5,10 +6,9 @@ import {
   faArrowRightToBracket
 } from '@fortawesome/free-solid-svg-icons'
 
-const Keyboard = () => {
+const Keyboard = ({ handleClick }) => {
   const keys = ['qwertyuiop', 'asdfghjkl', '1zxcvbnm0']
   const keyElement = (item) => {
-    console.log(item)
     if (item === '0') {
       return <FontAwesomeIcon icon={faDeleteLeft} />
     }
@@ -26,7 +26,11 @@ const Keyboard = () => {
               return (
                 <button
                   className='keyboard-block'
-                  onClick={() => console.log(item)}
+                  onClick={() => {
+                    if (item === '0') return handleClick('Backspace')
+                    if (item === '1') return handleClick('Enter')
+                    return handleClick(item)
+                  }}
                   key={i}>
                   {keyElement(item)}
                 </button>
@@ -37,6 +41,10 @@ const Keyboard = () => {
       })}
     </div>
   )
+}
+
+Keyboard.propTypes = {
+  handleClick: PropTypes.func
 }
 
 export default Keyboard

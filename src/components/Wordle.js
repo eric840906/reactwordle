@@ -5,7 +5,7 @@ import Keyboard from './Keyboard'
 import './Wordle.css'
 
 const Wordle = ({ solution }) => {
-  const { handleKeyup, currentGuess, history } = useWordle(solution)
+  const { handleKeyup, currentGuess, history, handleClick } = useWordle(solution)
   useEffect(() => {
     window.addEventListener('keyup', handleKeyup)
     return () => window.removeEventListener('keyup', handleKeyup)
@@ -38,7 +38,7 @@ const Wordle = ({ solution }) => {
           ))}
         </div>
       </div>
-      <Keyboard />
+      <Keyboard handleClick={handleClick} />
     </>
   )
 }
