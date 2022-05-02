@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import Wordle from './components/Wordle'
-import Keyboard from './components/Keyboard'
 
 const App = () => {
   const [solution, setSolution] = useState(null)
@@ -15,7 +14,6 @@ const App = () => {
     <div className='App'>
       <h1>Wordle</h1>
       {solution && <Wordle solution={solution} />}
-      <Keyboard />
     </div>
   )
 }
