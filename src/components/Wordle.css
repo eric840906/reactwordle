@@ -1,0 +1,22 @@
+.wordle-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.wordle-row {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.wordle-block {
+  width: 50px;
+  height: 50px;
+  border: 1px solid;
+  text-align: center;
+  line-height: 50px;
+  font-size: 35px;
+  padding: 2px;
+  text-transform: uppercase;
+  font-weight: bolder;
+}

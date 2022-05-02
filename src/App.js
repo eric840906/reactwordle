@@ -1,17 +1,21 @@
 import { useEffect, useState } from 'react'
 import Wordle from './components/Wordle'
+import Keyboard from './components/Keyboard'
 
 const App = () => {
   const [solution, setSolution] = useState(null)
   useEffect(async () => {
-    fetch('https://random-word-api.herokuapp.com/word?length=5', {
+    fetch('https://random-word-api.herokuapp.com/word?lang=en&length=5', {
       method: 'GET'
-    }).then(res => res.json()).then(res => setSolution(res[0]))
+    })
+      .then((res) => res.json())
+      .then((res) => setSolution(res[0]))
   }, [setSolution])
   return (
     <div className='App'>
-      <h1>Wordle (Lingo)</h1>
+      <h1>Wordle</h1>
       {solution && <Wordle solution={solution} />}
+      <Keyboard />
     </div>
   )
 }
