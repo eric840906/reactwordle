@@ -1,33 +1,34 @@
 import './Keyboard.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faDeleteLeft,
+  faArrowRightToBracket
+} from '@fortawesome/free-solid-svg-icons'
+
 const Keyboard = () => {
-  const keys = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm']
+  const keys = ['qwertyuiop', 'asdfghjkl', '1zxcvbnm0']
+  const keyElement = (item) => {
+    console.log(item)
+    if (item === '0') {
+      return <FontAwesomeIcon icon={faDeleteLeft} />
+    }
+    if (item === '1') {
+      return <FontAwesomeIcon icon={faArrowRightToBracket} />
+    }
+    return item
+  }
   return (
     <div className='keyboard-frame'>
       {keys.map((item, i) => {
-        let isLastRow = false
-        if (i + 1 === keys.length) {
-          console.log(item)
-          isLastRow = true
-        }
         return (
           <div className='keyboard-row' key={i}>
             {[...item].flat().map((item, i) => {
-              if (isLastRow) {
-                return (
-                  <button
-                    className='keyboard-block'
-                    onClick={() => console.log(item)}
-                    key={i}>
-                    {item}
-                  </button>
-                )
-              }
               return (
                 <button
                   className='keyboard-block'
                   onClick={() => console.log(item)}
                   key={i}>
-                  {item}
+                  {keyElement(item)}
                 </button>
               )
             })}
